@@ -1,47 +1,58 @@
+/*moodify the programme to include contructor for all the three classes*/
 #include<iostream>
 using namespace std;
-class shape
+class a
 {
-public:
-	double x,y;
-	void get_data(double m,double n)
+	public:
+		int g,b,c;
+		a()
+		{}
+		a(int x)
 		{
-			x=m;
-			y=n;
+			g=x;
+		
+		
 		}
-	virtual void display()
-	{
-	        cout<< (x*y);
-	}
+		void display()
+		{
+		cout<<"a="<<g<<"b="<<b<<"c="<<c<<"\n";
+		
+		}
+
 
 };
-class triangle : public shape
+class d:: public a
 {
-public:
-	void display()
-        {
-               cout<<  (0.5*x*y)<<"\n";
-        }
+	public:
+		d()
+		{}
+		d(int y)
+		{
+			b=y;	
+		
+		}
 
 };
-class rectangle:public shape
+class e ::public a
 {
-public:
-	void display()
-	{
-	        cout<<(x*y);
-	}
-
+	public:
+		e()
+		{}
+		e(int z)
+		{
+			c=z;
+		
+		}
 };
 int main()
 {
-triangle a;
-a.get_data(2,3);
-rectangle b;
-b.get_data(2,3);
-a.display();
-b.display();
-return 0;
+	a oba(5);
+	d obd(10);
+	e obe(15);
+	//oba.display();
+	return 0;
 
 
 }
+
+

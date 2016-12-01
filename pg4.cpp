@@ -1,62 +1,110 @@
 #include<iostream>
 using namespace std;
-class shape
+class staff
 {
 public:
-	double x,y;
-	void get_data(double m,double n)
-		{
-			x=m;
-			y=n;
-		}
-	 void display()
+	int code;
+	string name;
+
+
+};
+class teacher:public staff
+{
+	public:
+	string sub;
+	void getdata(int x,string y,string z)
 	{
-	        cout<<"rectanglee"<< (x*y)<<"\n";
+		code=x;
+		name=y;
+		sub=z;
 	}
-
-};
-class triangle : public shape
-{
-public:
 	void display()
-        {
-               cout<<"triangle"<<  (0.5*x*y)<<"\n";
-        }
-
-};
-class rectangle:public shape
-{
-public:
+	{
+		cout<<"code="<<code<<"\t"<<"name"<<name<<"\n";
+		cout<<"subject"<<sub<<"\n";
+	}
 	
 
 };
-class circle:public shape
+class typist:public staff
 {
 public:
-        void display()
-        {
-                cout<<"circle"<<(3.14*x*x)<<"\n";
-        }
+	int speed;
+	
+	
 
+};
+class officer:public staff
+{
+	public:
+	char grade;
+	void getdata(int x,string y,char z)
+	{
+		code=x;
+		name=y;
+		grade=z;
+	
+	}
+	void display()
+	{
+		cout<<"code="<<code<<"\t"<<"name"<<name<<"\n";
+		cout<<"grade"<<grade<<"\n";
+	}
+	
+
+};
+class regular:public typist
+{
+	public:
+	void getdata(int x,string y,int z)
+	{
+		code=x;
+		name=y;
+		speed=z;
+	
+	}
+	void display()
+	{
+		cout<<"code="<<code<<"\t"<<"name"<<name<<"\n";
+		cout<<"speed"<<speed<<"\n";
+	}
+	
+
+};
+class casual:public typist
+{
+public:
+	int dailywage;
+	void getdata(int x,string y,int z,int m)
+	{
+		code=x;
+		name=y;
+		speed=z;
+		dailywage=m;
+	
+	}
+	void display()
+	{
+		cout<<"code="<<code<<"\t"<<"name"<<name<<"\n";
+		cout<<"speed"<<speed<<"\n";
+		cout<<"dailywage"<<dailywage<<"\n";
+	}
 };
 int main()
 {
-triangle a;
-a.get_data(2,3);
-//b.get_data(2,3);
-a.display();
-//b.display();
-rectangle b;
-//shape d;
-shape *ptr;
-ptr=&b;
-ptr->get_data(2,3);
-//ptr=&d;
-ptr->display();
-circle c;
-c.get_data(2,0);
-c.display();
-return 0;
+ teacher a;
+ a.getdata(1,"Deba","phy");
+ a.display();
+ officer b;
+ b.getdata(2,"kutta",'a');
+ b.display();
+ regular c;
+ c.getdata(3,"lol",100);
+ c.display();
+ casual d;
+ d.getdata(4,"fff",120,400);
+ d.display();
+ return 0;
 
 
 }

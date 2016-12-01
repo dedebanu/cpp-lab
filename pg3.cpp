@@ -1,62 +1,112 @@
 #include<iostream>
 using namespace std;
-class shape
+class account
 {
 public:
-	double x,y;
-	void get_data(double m,double n)
+	string cname;
+	char type;
+	int acno;
+
+
+};
+class curac:public account
+{
+	public:
+		int bal=0;
+		int inte=1;
+		int minbal=100;
+		
+		void deposit(int x)
 		{
-			x=m;
-			y=n;
+			bal=bal+x;
+		
 		}
-	virtual void display()
-	{
-	        cout<<"rectanglee"<< (x*y)<<"\n";
-	}
+		void display()
+		{
+			cout<<"name"<<cname<<"\n"<<"type"<<type<<"acno"<<acno<<"\n";
+			cout<<"the balence is"<<bal<<"\n";
+		}
+		void with(int z)
+		{
+			if(bal<minbal)
+			{
+				cout<<"not permitted bal is"<<bal<<"\n";
+				
+			
+			}
+			else
+			{
+			bal=bal-z;
+			
+			}
+		}
+		void penal()
+		{
+			if(bal<minbal)
+			{
+				bal=bal-23;
+				cout<<bal;
+			}
+		
+		}
+
 
 };
-class triangle : public shape
+class savac:public account
 {
-public:
-	void display()
-        {
-               cout<<"triangle"<<  (0.5*x*y)<<"\n";
-        }
+	public:
+		int bal=0;
+		int inte=1;
+		int minbal=100;
+		
+		void deposit(int x)
+		{
+			bal=bal+x;
+		
+		}
+		void display()
+		{
+			cout<<"name"<<cname<<"\n"<<"type"<<type<<"acno"<<acno<<"\n";
+			cout<<"the balence is"<<bal;
+		}
+		void with(int z)
+		{
+			
+			bal=bal-z;
+			cout<<"balance after withdrawaal"<<bal<<"\n";
+		
+		}
+		void intere()
+		{
+			inte=bal/20;
+			bal=bal+inte;
+			cout<<"interest is"<<inte<<"\n";
+		}
+		
 
-};
-class rectangle:public shape
-{
-public:
-	
-
-};
-class circle:public shape
-{
-public:
-        void display()
-        {
-                cout<<"circle"<<(3.14*x*x)<<"\n";
-        }
 
 };
 int main()
 {
-triangle a;
-a.get_data(2,3);
-//b.get_data(2,3);
+curac a;
+a.cname="debayan";
+a.type='c';
+a.acno=1000;
+a.deposit(200);
+a.with(100);
+a.with(10);
+a.penal();
 a.display();
-//b.display();
-rectangle b;
-//shape d;
-shape *ptr;
-ptr=&b;
-ptr->get_data(2,3);
-//ptr=&d;
-ptr->display();
-circle c;
-c.get_data(2,0);
-c.display();
+savac b;
+b.cname="deb";
+b.type='s';
+b.acno=1000;
+b.deposit(200);
+b.with(100);
+b.with(10);
+//b.penal();
+b.intere();
+b.display();
 return 0;
-
-
 }
+
